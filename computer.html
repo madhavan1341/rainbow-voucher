@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Ronazio Beach View Residency | Booking Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -457,11 +458,105 @@
                 margin-bottom: -350px;
             }
         }
+=======
+    <title>Rainbow Residency | Booking Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --residency-blue: #2fbdf5; }
+        body { font-family: 'Open Sans', sans-serif; background: #f4f7f6; margin: 0; padding: 10px; }
+        
+        .container { 
+            max-width: 1250px; 
+            background: white; 
+            margin: auto; 
+            padding: 20px; 
+            border-radius: 15px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border-top: 10px solid var(--residency-blue); 
+            display: flex; 
+            flex-direction: row; 
+            gap: 20px; 
+        }
+
+        @media (max-width: 900px) {
+            .container { flex-direction: column; padding: 15px; }
+            .preview-side { min-height: 600px; padding: 10px !important; }
+            #pdf-template { transform: scale(0.6); transform-origin: top center; }
+            .form-side { min-width: 100% !important; }
+        }
+
+        .form-side { flex: 1; min-width: 450px; }
+        .form-header { text-align: center; margin-bottom: 15px; }
+        .form-header h2 { color: var(--residency-blue); margin: 0; font-family: 'Montserrat', sans-serif; font-size: 22px; }
+        .section-title { background: #eefbff; padding: 8px 12px; border-left: 5px solid var(--residency-blue); font-weight: bold; color: #007ea7; margin: 15px 0 10px 0; font-size: 11px; text-transform: uppercase; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .input-group { display: flex; flex-direction: column; }
+        label { font-size: 10px; font-weight: bold; color: #555; margin-bottom: 4px; }
+        input, select, textarea { padding: 10px; border: 1px solid #cce5ff; border-radius: 6px; font-size: 14px; background: #fafcfe; }
+        
+        .btn-container { margin-top: 20px; text-align: center; }
+        .btn { padding: 14px 30px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; color: white; text-transform: uppercase; font-size: 13px; background: var(--residency-blue); width: 100%; transition: 0.3s; }
+
+        .preview-side { 
+            flex: 1.4; 
+            background: #34495e; 
+            padding: 30px; 
+            border-radius: 12px; 
+            display: flex; 
+            justify-content: center; 
+            overflow-x: hidden; 
+            overflow-y: auto; 
+            max-height: 90vh; 
+        }
+        
+        #pdf-template { 
+            width: 595px; 
+            min-height: 842px; 
+            background: white; 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-left: -8px; 
+        }
+        
+        .pdf-header { 
+            background-color: var(--residency-blue) !important; 
+            color: white !important; 
+            padding: 15px; 
+            width: 100%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        
+        .header-logo { position: absolute; left: 20px; width: 65px; height: auto; }
+        .header-text-center { text-align: center; width: 85%; }
+        .unique-font { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 24px; letter-spacing: 1px; margin: 0; text-transform: uppercase; }
+        .sub-ticket { margin: 2px 0; font-size: 11px; font-weight: bold; opacity: 0.9; text-transform: uppercase; }
+        .address-text { font-size: 9px; line-height: 1.4; margin-top: 5px; font-weight: normal; }
+
+        .pdf-body { padding: 20px 30px; flex: 1; box-sizing: border-box; display: flex; flex-direction: column; }
+        .stay-banner { display: flex; background: #f0faff; border: 1px solid #d1ecf1; margin-bottom: 15px; width: 100%; }
+        .stay-box { flex: 1; padding: 10px; text-align: center; border-right: 1px solid #d1ecf1; }
+        
+        .info-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 10px; }
+        .info-table td { padding: 8px 0; border-bottom: 1px solid #f1f1f1; }
+        .label-text { color: #666; font-weight: 600; }
+        .value-text { text-align: right; font-weight: 700; color: #333; }
+        
+        .billing-box { background: #fffdf2; border: 2px dashed var(--residency-blue); padding: 12px; border-radius: 8px; margin-top: 5px; }
+        .total-row { border-top: 1px solid #e1e1e1; margin-top: 5px; padding-top: 8px; font-size: 20px; color: var(--residency-blue); font-weight: bold; display: flex; justify-content: space-between; }
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
+<<<<<<< HEAD
 <div class="page-title">
     <h1>Ronazio Beach View Residency</h1>
     <p>Booking Management Portal</p>
@@ -663,11 +758,126 @@
             </div>
 
             <div class="pdf-footer-bar"></div>
+=======
+<div class="container">
+    <div class="form-side">
+        <div class="form-header">
+            <h2>RAINBOW RESIDENCY</h2>
+            <p style="font-size: 11px; color: #888;">Admin Dashboard v5.3</p>
+        </div>
+        
+        <form id="bookingForm">
+            <div class="section-title">Booking Details</div>
+            <div class="form-grid">
+                <div class="input-group"><label>Booking ID</label><input type="text" id="bookingIDInput"></div>
+                <div class="input-group"><label>Booking Mode</label><input type="text" id="bookingMode" value="Direct Call"></div>
+            </div>
+
+            <div class="section-title">Guest Details</div>
+            <div class="form-grid">
+                <div class="input-group"><label>Booking Name</label><input type="text" id="guestName" placeholder="Name"></div>
+                <div class="input-group"><label>Guest Phone</label><input type="text" id="guestPhone" placeholder="+91"></div>
+                <div class="input-group"><label>Occupancy</label><input type="text" id="guestCount" placeholder="e.g. 7 adults"></div>
+                <div class="input-group"><label>Guest Location</label><input type="text" id="guestLoc" placeholder="City Name"></div>
+                <div class="input-group"><label>No. of Nights</label><input type="number" id="nights" value="1"></div>
+            </div>
+
+            <div class="section-title">Stay & Timings</div>
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Staying In</label>
+                    <select id="stayType">
+                        <option value="Deluxe Non AC Room" selected>Deluxe Non AC Room</option>
+                        <option value="Deluxe AC Room" selected>Deluxe AC Room</option>
+                        <option value="Deluxe Sea View Room" selected>Deluxe Sea View Room</option>
+                        <option value="Private Suite Room" selected>Private Suite Room</option>
+                    </select>
+                </div>
+                <div class="input-group"><label>Check-In Date</label><input type="date" id="checkInDate"></div>
+                <div class="input-group"><label>Check-In Timing</label><input type="text" id="checkInTime" value="After 12:00 PM"></div>
+                <div class="input-group"><label>Check-Out Date</label><input type="date" id="checkOutDate"></div>
+                <div class="input-group"><label>Check-Out Timing</label><input type="text" id="checkOutTime" value="Before 11:00 AM"></div>
+            </div>
+
+            <div class="section-title">Payment & Notes</div>
+            <div class="form-grid">
+                <div class="input-group"><label>Total Amount (₹)</label><input type="number" id="totalAmt" placeholder="0"></div>
+                <div class="input-group"><label>Advance (₹)</label><input type="number" id="advanceAmt" value="0"></div>
+                <div class="input-group" style="grid-column: span 2;"><label>Special Note</label><textarea id="specialNote">Any extra guest and extra timing charges applicable.</textarea></div>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" onclick="generatePDF()" class="btn">Download PDF Ticket</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="preview-side">
+        <div id="pdf-template">
+            <div class="pdf-header">
+                <img src="image/logo.png" class="header-logo" alt="LOGO" onerror="this.style.visibility='hidden'">
+                <div class="header-text-center">
+                    <h1 class="unique-font">RAINBOW RESIDENCY</h1>
+                    <p class="sub-ticket">Booking Confirmation Voucher</p>
+                    <div class="address-text">
+                        No 1, Kannaiaya Nagar, Bommaiyarplayam, Kottakuppam, TN 605104<br>
+                        93613 37977 <br>
+                        <strong>Booking ID: <span id="p-id">RR000000</span></strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pdf-body">
+                <div class="stay-banner">
+                    <div class="stay-box">
+                        <div style="font-size: 9px; color: #777; font-weight: bold; text-transform: uppercase;">Check-In</div>
+                        <div id="p-checkin" style="font-weight: bold; font-size: 13px; margin-top: 4px; color: #d63031;">-</div>
+                        <div id="p-checkin-t" style="font-size: 10px; color: #555;">-</div>
+                    </div>
+                    <div class="stay-box" style="border:none;">
+                        <div style="font-size: 9px; color: #777; font-weight: bold; text-transform: uppercase;">Check-Out</div>
+                        <div id="p-checkout" style="font-weight: bold; font-size: 13px; margin-top: 4px; color: #d63031;">-</div>
+                        <div id="p-checkout-t" style="font-size: 10px; color: #555;">-</div>
+                    </div>
+                </div>
+
+                <table class="info-table">
+                    <tr><td class="label-text">Booking Name</td><td class="value-text" id="p-name">-</td></tr>
+                    <tr><td class="label-text">Phone</td><td class="value-text" id="p-phone">-</td></tr>
+                    <tr><td class="label-text">Guest Location</td><td class="value-text" id="p-loc">-</td></tr>
+                    <tr><td class="label-text">Occupancy</td><td class="value-text" id="p-occ">-</td></tr>
+                    <tr><td class="label-text">Staying In</td><td class="value-text" id="p-stay" style="color: #007ea7;">-</td></tr>
+                    <tr><td class="label-text">Booking Mode</td><td class="value-text" id="p-mode">-</td></tr>
+                    <tr><td class="label-text">No. of Nights</td><td class="value-text" id="p-nights">-</td></tr>
+                </table>
+
+                <div class="billing-box">
+                    <div style="display:flex; justify-content: space-between; font-size: 13px; margin-bottom:5px;"><span>Total Amount</span><span id="p-total">₹ 0</span></div>
+                    <div id="advance-row" style="display:flex; justify-content: space-between; font-size: 13px; color: #e67e22; margin-bottom:5px;">
+                        <span>Advance Paid</span><span id="p-advance">₹ 0</span>
+                    </div>
+                    <div class="total-row">
+                        <span id="p-balance-label">Balance to Pay</span><span id="p-balance">₹ 0</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px; font-size: 11px; color: #666; line-height: 1.4; border-left: 3px solid var(--residency-blue); padding-left: 10px;">
+                    <strong>Note:</strong> <span id="p-note">-</span>
+                </div>
+
+                <div style="margin-top: auto; padding-top: 20px; text-align: center;">
+                    <p style="font-family: 'Georgia', serif; font-style: italic; color: var(--residency-blue); font-size: 16px; margin: 0;">🌈 Thanks for choosing Rainbow Residency 🌈</p>
+                    <p style="color: #888; font-size: 11px; margin-top: 4px;">Have a pleasant stay!</p>
+                </div>
+            </div>
+            <div style="background: var(--residency-blue); height: 10px; width: 100%;"></div>
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
         </div>
     </div>
 </div>
 
 <script>
+<<<<<<< HEAD
     function setNextBookingID() {
         let currentID = localStorage.getItem('ronazio_lastBookingID') || 0;
         currentID = parseInt(currentID);
@@ -710,19 +920,65 @@
         document.getElementById('p-checkout-t').innerText = document.getElementById('checkOutTime').value;
 
         document.getElementById('p-note').innerText = document.getElementById('specialNote').value || "—";
+=======
+    // Sequential ID logic
+    function setNextBookingID() {
+        let currentID = localStorage.getItem('lastBookingID') || 0;
+        currentID = parseInt(currentID);
+        const formattedID = "RR" + (currentID + 1).toString().padStart(6, '0');
+        document.getElementById('bookingIDInput').value = formattedID;
+        document.getElementById('p-id').innerText = formattedID;
+    }
+
+    function incrementBookingID() {
+        // We take whatever is currently in the input field to decide if we need to update storage
+        let inputID = document.getElementById('bookingIDInput').value;
+        let numericPart = parseInt(inputID.replace("RR", ""));
+        if(!isNaN(numericPart)) {
+            localStorage.setItem('lastBookingID', numericPart);
+        }
+    }
+
+    function updatePreview() {
+        // Sync ID from Dashboard Input to Preview
+        document.getElementById('p-id').innerText = document.getElementById('bookingIDInput').value || "RR000000";
+
+        document.getElementById('p-name').innerText = document.getElementById('guestName').value || "-";
+        document.getElementById('p-phone').innerText = document.getElementById('guestPhone').value || "-";
+        document.getElementById('p-loc').innerText = document.getElementById('guestLoc').value || "-";
+        document.getElementById('p-occ').innerText = document.getElementById('guestCount').value || "-";
+        document.getElementById('p-stay').innerText = document.getElementById('stayType').value || "-";
+        document.getElementById('p-mode').innerText = document.getElementById('bookingMode').value || "-";
+        document.getElementById('p-nights').innerText = document.getElementById('nights').value || "-";
+        
+        const cin = document.getElementById('checkInDate').value;
+        const cout = document.getElementById('checkOutDate').value;
+        document.getElementById('p-checkin').innerText = cin ? cin.split('-').reverse().join('/') : "-";
+        document.getElementById('p-checkout').innerText = cout ? cout.split('-').reverse().join('/') : "-";
+        
+        document.getElementById('p-checkin-t').innerText = document.getElementById('checkInTime').value;
+        document.getElementById('p-checkout-t').innerText = document.getElementById('checkOutTime').value;
+        document.getElementById('p-note').innerText = document.getElementById('specialNote').value || "-";
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
 
         const total = parseFloat(document.getElementById('totalAmt').value) || 0;
         const advance = parseFloat(document.getElementById('advanceAmt').value) || 0;
         const balance = total - advance;
 
+<<<<<<< HEAD
         document.getElementById('p-total').innerText = "₹ " + total.toLocaleString('en-IN');
 
+=======
+        document.getElementById('p-total').innerText = "₹ " + total;
+        
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
         const advRow = document.getElementById('advance-row');
         const balLabel = document.getElementById('p-balance-label');
         const balVal = document.getElementById('p-balance');
 
         if (advance === 0 && total > 0) {
             advRow.style.display = 'none';
+<<<<<<< HEAD
             balLabel.innerText = "Full Payment Due";
             balLabel.style.color = "var(--navy)";
             balVal.innerText = "₹ " + total.toLocaleString('en-IN');
@@ -731,11 +987,15 @@
             advRow.style.display = 'flex';
             document.getElementById('p-advance').innerText = "₹ " + advance.toLocaleString('en-IN');
             balLabel.innerText = "✓ Fully Paid";
+=======
+            balLabel.innerText = "Full Payment Paid";
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
             balLabel.style.color = "#27ae60";
             balVal.innerText = "✓";
             balVal.style.color = "#27ae60";
         } else {
             advRow.style.display = 'flex';
+<<<<<<< HEAD
             document.getElementById('p-advance').innerText = "₹ " + advance.toLocaleString('en-IN');
             balLabel.innerText = "Balance to Pay";
             balLabel.style.color = "var(--navy)";
@@ -745,6 +1005,17 @@
     }
 
     window.onload = function () {
+=======
+            document.getElementById('p-advance').innerText = "₹ " + advance;
+            balLabel.innerText = "Balance to Pay";
+            balLabel.style.color = "var(--residency-blue)";
+            balVal.innerText = "₹ " + balance;
+            balVal.style.color = "var(--residency-blue)";
+        }
+    }
+
+    window.onload = function() {
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('checkInDate').value = today;
         document.getElementById('checkOutDate').value = today;
@@ -754,6 +1025,7 @@
 
     function generatePDF() {
         updatePreview();
+<<<<<<< HEAD
 
         const el = document.getElementById('pdf-template');
 
@@ -781,6 +1053,20 @@
 
         html2pdf().set(opt).from(el).save().then(() => {
             el.style.transform = prevTransform;
+=======
+        const element = document.getElementById('pdf-template');
+        window.scrollTo(0,0);
+        
+        const opt = {
+            margin: 0,
+            filename: 'Rainbow_Voucher_' + (document.getElementById('guestName').value || 'Booking') + '.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: { scale: 3, useCORS: true, width: 595, scrollY: 0, scrollX: 0 },
+            jsPDF: { unit: 'px', format: [595, 842], orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
             incrementBookingID();
             setNextBookingID();
         });
@@ -791,4 +1077,10 @@
     });
 </script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+
+
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20

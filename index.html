@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ronazio Beach View Residency | Voucher</title>
@@ -621,3 +622,397 @@
 </script>
 </body>
 </html> 
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Voucher | Royal Coastal Stay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --royal-gold: #d4af37;
+            --sea-blue: #0077be;
+            --deep-ocean: #001a2c;
+        }
+
+        body, html {
+            margin: 0; padding: 0; 
+            min-height: 100%; /* Changed to min-height */
+            font-family: 'Montserrat', sans-serif;
+            background: var(--deep-ocean);
+            color: white;
+            perspective: 1000px;
+            /* Remove overflow: hidden to allow scrolling if needed on small screens */
+            overflow-x: hidden; 
+        }
+
+        /* 3D Sea Background */
+        .sea-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2048&auto=format&fit=crop') no-repeat center center;
+            background-size: cover;
+            filter: brightness(0.6) contrast(1.1);
+            animation: seaMotion 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes seaMotion {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.15) rotate(1deg); }
+        }
+
+        .overlay-waves {
+            position: absolute;
+            bottom: 0; width: 100%; height: 40%;
+            background: linear-gradient(to top, var(--deep-ocean), transparent);
+            z-index: 1;
+        }
+
+        .hero-container {
+            min-height: 100vh; /* Better for mobile content */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+            padding: 20px; /* Added padding for mobile safety */
+        }
+
+        /* Luxury Header */
+        header {
+            position: absolute;
+            top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: luxuryFade 1.5s ease-out;
+            width: 100%; /* Ensure centering */
+        }
+
+        .header-logo {
+            width: 90px;
+            filter: drop-shadow(0 0 15px var(--royal-gold));
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .header-heading {
+            font-family: 'Cinzel', serif;
+            color: var(--royal-gold);
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            font-size: 24px;
+            margin-top: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+
+        /* 3D Royal Floating Card */
+        .royal-card {
+            background: rgba(0, 26, 44, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 80px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8), inset 0 0 30px rgba(212, 175, 55, 0.05);
+            transform: rotateX(10deg);
+            transition: transform 0.3s ease;
+            animation: entrance 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+            max-width: 800px;
+            width: 90%; /* For safety */
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 75px;
+            margin: 0;
+            background: linear-gradient(to bottom, #fff, var(--royal-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 5px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+        }
+
+        /* Royal Buttons */
+        .btn-group {
+            margin-top: 50px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 20px 45px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: visible;
+            border: 1px solid var(--royal-gold);
+            background: transparent;
+            color: var(--royal-gold);
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        /* Fixed Branding Footer */
+        .footer-branding-fixed {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            z-index: 100;
+        }
+
+        .created-inline-wrapper { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+
+        .created-text { 
+            font-size: 0.75rem; 
+            color: rgba(255, 255, 255, 0.5); 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        .matrix-brand { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            text-decoration: none !important; 
+            position: relative; 
+            transform: scale(1.1);
+        }
+
+        .m-red { color: #FF0000; font-weight: 700; transition: 0.3s; }
+        .b-white { color: #FFFFFF; font-weight: 700; transition: 0.3s; }
+
+        .matrix-logo-circle-zoom { 
+            width: 32px; height: 32px; 
+            background: #fff; border-radius: 50%; overflow: hidden; 
+            display: flex; justify-content: center; align-items: center; 
+        }
+        .matrix-logo-circle-zoom img { width: 100%; height: 100%; object-fit: cover; }
+
+        .star-dust {
+            position: absolute;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 999;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+        }
+
+        .dust-container {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+        }
+
+        /* 📱 RESPONSIVE MOBILE ADJUSTMENTS */
+        @media (max-width: 768px) {
+            header {
+                top: 20px;
+            }
+
+            .header-logo {
+                width: 60px;
+            }
+
+            .header-heading {
+                font-size: 16px;
+                letter-spacing: 4px;
+            }
+
+            .royal-card { 
+                padding: 40px 20px; 
+                width: 85%; 
+                margin-top: 100px; /* Space for absolute header */
+            }
+
+            h1 { 
+                font-size: 38px; /* Smaller text for mobile */
+                letter-spacing: 2px;
+            }
+
+            .tagline {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .btn-group { 
+                flex-direction: column; 
+                gap: 15px;
+                width: 100%; 
+                align-items: center;
+            }
+
+            .btn { 
+                width: 80%; 
+                text-align: center; 
+                padding: 15px 20px;
+                font-size: 12px;
+            }
+
+            .footer-branding-fixed {
+                position: relative; /* Move it back to layout flow for mobile if needed */
+                right: auto;
+                bottom: 20px;
+                margin-top: 40px;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        @keyframes entrance {
+            from { opacity: 0; transform: scale(0.8) translateZ(-500px); }
+            to { opacity: 1; transform: scale(1) translateZ(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+        @keyframes luxuryFade {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sea-bg"></div>
+    <div class="overlay-waves"></div>
+
+    <div class="hero-container">
+        <header>
+            <img src="image/logo.png" class="header-logo" alt="Logo" onerror="this.style.visibility='hidden'">
+            <h2 class="header-heading">Rainbow Residency</h2>
+        </header>
+
+        <div class="royal-card" id="tiltCard">
+            <h1>RAINBOW</h1>
+            <div class="tagline">Voucher For Customers</div>
+            
+            <div class="btn-group">
+                <a href="computer.html" class="btn">
+                    <i class="fas fa-crown"></i> &nbsp; Computer Voucher
+                    <div class="dust-container"></div>
+                </a>
+                <a href="mobile.html" class="btn">
+                    <i class="fas fa-gem"></i> &nbsp; Mobile Voucher
+                    <div class="dust-container"></div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Branding inside hero container for mobile ease -->
+        <div class="footer-branding-fixed">
+            <div class="created-inline-wrapper">
+                <span class="created-text">Created by</span>
+                <a href="https://madhavan1341.github.io/MatrixBytes/" target="_blank" class="matrix-brand" id="matrix-brand-hover">
+                    <div class="matrix-logo-circle-zoom">
+                        <img src="image/MB.png" alt="MatrixBytes Logo">
+                    </div>
+                    <span class="matrix-text">
+                        <span class="m-red">Matrix</span><span class="b-white">Bytes</span>
+                    </span>
+                    <div class="dust-container" id="glitter-container"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 3D Tilt Effect - Disabled on Mobile for better UX
+        const card = document.getElementById('tiltCard');
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const rotateY = (window.innerWidth / 2 - e.pageX) / 25;
+                const rotateX = (window.innerHeight / 2 - e.pageY) / 25;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            document.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateX(10deg) rotateY(0deg)`;
+            });
+        } else {
+            // Keep card static on mobile
+            card.style.transform = "none";
+        }
+
+        // Universal Dust Effect Function
+        function createDust(container, colors) {
+            for (let i = 0; i < 4; i++) {
+                const dust = document.createElement('div');
+                dust.className = 'star-dust';
+                dust.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                const x = (Math.random() - 0.5) * 110 + 'px';
+                const y = (Math.random() - 0.5) * 110 + 'px';
+                dust.style.setProperty('--x', x);
+                dust.style.setProperty('--y', y);
+                
+                dust.style.left = '50%';
+                dust.style.top = '50%';
+                
+                container.appendChild(dust);
+                setTimeout(() => dust.remove(), 1000);
+            }
+        }
+
+        // Apply Dust to Buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            let interval;
+            const container = button.querySelector('.dust-container');
+            button.addEventListener('mouseenter', () => {
+                interval = setInterval(() => createDust(container, ['#d4af37', '#ffffff', '#FFD700']), 100);
+            });
+            button.addEventListener('mouseleave', () => clearInterval(interval));
+            // Touch support for mobile dust
+            button.addEventListener('touchstart', () => {
+                createDust(container, ['#d4af37', '#ffffff', '#FFD700']);
+            });
+        });
+
+        // Apply Dust to Footer Brand
+        const brandLink = document.getElementById('matrix-brand-hover');
+        const footerDustBox = document.getElementById('glitter-container');
+        let footerInterval;
+        brandLink.addEventListener('mouseenter', () => {
+            footerInterval = setInterval(() => createDust(footerDustBox, ['#FF0000', '#ffffff', '#FF8888']), 100);
+        });
+        brandLink.addEventListener('mouseleave', () => clearInterval(footerInterval));
+
+    </script>
+</body>
+</html>
+>>>>>>> 117e5b916a8b835f2529f8bbb9379cdbe90bbf20
