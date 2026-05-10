@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronazio Beach View Residency | Booking Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0c1c33;
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --gold-pale: #f5ecd4;
+            --accent: #1a3560;
+            --text-dark: #1a1a2e;
+            --text-mid: #4a5568;
+            --border: #d4b896;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #0c1c33 0%, #1a3560 50%, #0c1c33 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 28px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        .page-title p {
+            color: rgba(201,168,76,0.6);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .container {
+            max-width: 1280px;
+            background: #f8f5f0;
+            margin: auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            border-top: 8px solid var(--gold);
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+        }
+
+        /* ===== FORM SIDE ===== */
+        .form-side {
+            flex: 1;
+            min-width: 420px;
+            background: white;
+            padding: 30px 25px;
+            border-right: 1px solid #e8e0d0;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gold-pale);
+        }
+        .form-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+        .form-header p {
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            background: linear-gradient(90deg, var(--navy), var(--accent));
+            color: var(--gold);
+            padding: 7px 14px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 16px 0 10px 0;
+            border-radius: 4px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        input, select, textarea {
+            padding: 9px 12px;
+            border: 1.5px solid #ddd0bc;
+            border-radius: 6px;
+            font-size: 13px;
+            font-family: 'Open Sans', sans-serif;
+            background: #fdfaf5;
+            color: var(--text-dark);
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--gold);
+            background: white;
+        }
+
+        textarea { resize: vertical; min-height: 60px; }
+
+        .btn-container { margin-top: 20px; }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--navy), var(--accent));
+            color: var(--gold);
+            transition: all 0.3s;
+            border: 1px solid var(--gold);
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--navy);
+        }
+
+        /* ===== PREVIEW SIDE ===== */
+        .preview-side {
+            flex: 1.5;
+            background: #2a2a2a;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            max-height: 92vh;
+        }
+
+        /* ===== PDF TEMPLATE (A4: 595 x 842px) ===== */
+        #pdf-template {
+            width: 595px;
+            min-height: 842px;
+            background: white;
+            box-sizing: border-box;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* PDF Header */
+        .pdf-header {
+            background: var(--navy);
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 4px solid var(--gold);
+        }
+        .header-logo {
+            position: absolute;
+            left: 18px;
+            width: 60px;
+            height: auto;
+        }
+        .header-text-center {
+            text-align: center;
+        }
+        .pdf-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 26px;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1;
+        }
+        .pdf-sub-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            color: rgba(201,168,76,0.8);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 4px 0 2px;
+        }
+        .pdf-voucher-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 6px 0 2px;
+            background: rgba(201,168,76,0.2);
+            display: inline-block;
+            padding: 2px 12px;
+            border: 1px solid rgba(201,168,76,0.4);
+        }
+        .pdf-address {
+            font-size: 8.5px;
+            color: rgba(255,255,255,0.65);
+            margin-top: 4px;
+            line-height: 1.5;
+        }
+        .pdf-booking-id {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        .pdf-booking-id .id-label {
+            font-size: 8px;
+            color: rgba(201,168,76,0.7);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .pdf-booking-id .id-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 13px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        /* PDF Body */
+        .pdf-body {
+            padding: 18px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Stay Banner */
+        .stay-banner {
+            display: flex;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 14px;
+            background: var(--gold-pale);
+        }
+        .stay-box {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+        .stay-box + .stay-box {
+            border-left: 1.5px solid var(--border);
+        }
+        .stay-box-nights {
+            flex: 0.6;
+            border-left: 1.5px solid var(--border);
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .stay-label {
+            font-size: 8px;
+            color: var(--text-mid);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .stay-date {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--navy);
+            margin-top: 3px;
+        }
+        .stay-time {
+            font-size: 10px;
+            color: var(--text-mid);
+            margin-top: 2px;
+        }
+        .nights-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--gold);
+            line-height: 1;
+        }
+        .nights-label {
+            font-size: 9px;
+            color: rgba(201,168,76,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Room highlight */
+        .room-highlight {
+            background: var(--navy);
+            color: var(--gold);
+            text-align: center;
+            padding: 8px;
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            border-radius: 4px;
+        }
+
+        /* Info Table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            margin-bottom: 12px;
+        }
+        .info-table tr {
+            border-bottom: 1px solid #f0e8dc;
+        }
+        .info-table tr:last-child { border-bottom: none; }
+        .info-table td {
+            padding: 7px 4px;
+        }
+        .label-text {
+            color: var(--text-mid);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 45%;
+        }
+        .value-text {
+            text-align: right;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 12.5px;
+        }
+
+        /* Divider */
+        .gold-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 8px 0;
+        }
+
+        /* Billing Box */
+        .billing-box {
+            background: var(--gold-pale);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-top: 4px;
+        }
+        .billing-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 6px;
+            color: var(--text-mid);
+        }
+        .billing-row.advance {
+            color: #c0392b;
+        }
+        .billing-total {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1.5px solid var(--border);
+            padding-top: 10px;
+            margin-top: 4px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        /* Note */
+        .pdf-note {
+            margin-top: 12px;
+            font-size: 10px;
+            color: var(--text-mid);
+            line-height: 1.5;
+            border-left: 3px solid var(--gold);
+            padding-left: 10px;
+        }
+
+        /* Footer */
+        .pdf-footer-msg {
+            margin-top: auto;
+            padding-top: 16px;
+            text-align: center;
+        }
+        .pdf-footer-msg p:first-child {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--navy);
+            font-size: 14px;
+        }
+        .pdf-footer-msg p:last-child {
+            font-size: 10px;
+            color: var(--text-mid);
+            margin-top: 3px;
+        }
+
+        .pdf-footer-bar {
+            background: var(--navy);
+            height: 10px;
+            width: 100%;
+            border-top: 3px solid var(--gold);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 960px) {
+            .container { flex-direction: column; }
+            .form-side { min-width: 100%; border-right: none; border-bottom: 1px solid #e8e0d0; }
+            .preview-side {
+                max-height: none;
+                padding: 20px 10px;
+                overflow-x: auto;
+            }
+            #pdf-template {
+                transform: scale(0.58);
+                transform-origin: top center;
+                margin-bottom: -350px;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="page-title">
+    <h1>Ronazio Beach View Residency</h1>
+    <p>Booking Management Portal</p>
+</div>
+
+<div class="container">
+    <!-- FORM SIDE -->
+    <div class="form-side">
+        <div class="form-header">
+            <h2>BOOKING PORTAL</h2>
+            <p>Admin Dashboard &nbsp;|&nbsp; v1.0</p>
+        </div>
+
+        <div class="section-title">🔖 Booking Details</div>
+        <div class="form-grid">
+            <div class="input-group">
+                <label>Booking ID</label>
+                <input type="text" id="bookingIDInput">
+            </div>
+            <div class="input-group">
+                <label>Booking Mode</label>
+                <input type="text" id="bookingMode" value="Direct Call">
+            </div>
+        </div>
+
+        <div class="section-title">👤 Guest Details</div>
+        <div class="form-grid">
+            <div class="input-group">
+                <label>Booking Name</label>
+                <input type="text" id="guestName" placeholder="Full Name">
+            </div>
+            <div class="input-group">
+                <label>Guest Phone</label>
+                <input type="text" id="guestPhone" placeholder="+91 95975 62331">
+            </div>
+            <div class="input-group">
+                <label>Occupancy</label>
+                <input type="text" id="guestCount" placeholder="e.g. 2 Adults, 1 Child">
+            </div>
+            <div class="input-group">
+                <label>Guest Location</label>
+                <input type="text" id="guestLoc" placeholder="City, State">
+            </div>
+            <div class="input-group">
+                <label>No. of Nights</label>
+                <input type="number" id="nights" value="1" min="1">
+            </div>
+        </div>
+
+        <div class="section-title">🏨 Stay & Timings</div>
+        <div class="form-grid">
+            <div class="input-group">
+                <label>Staying In</label>
+                <select id="stayType">
+                    <option value="Deluxe Double Room">Deluxe Double Room</option>
+                    <option value="Deluxe Sea View">Deluxe Sea View</option>
+                    <option value="Deluxe Room With Balcony">Deluxe Room With Balcony</option>
+                    <option value="Family Room">Family Room</option>
+                    <option value="Family Room With Balcony">Family Room With Balcony</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Check-In Date</label>
+                <input type="date" id="checkInDate">
+            </div>
+            <div class="input-group">
+                <label>Check-In Timing</label>
+                <input type="text" id="checkInTime" value="After 12:00 PM">
+            </div>
+            <div class="input-group">
+                <label>Check-Out Date</label>
+                <input type="date" id="checkOutDate">
+            </div>
+            <div class="input-group">
+                <label>Check-Out Timing</label>
+                <input type="text" id="checkOutTime" value="Before 11:00 AM">
+            </div>
+        </div>
+
+        <div class="section-title">💳 Payment & Notes</div>
+        <div class="form-grid">
+            <div class="input-group">
+                <label>Total Amount (₹)</label>
+                <input type="number" id="totalAmt" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label>Advance Paid (₹)</label>
+                <input type="number" id="advanceAmt" value="0">
+            </div>
+            <div class="input-group" style="grid-column: span 2;">
+                <label>Special Note</label>
+                <textarea id="specialNote">Any extra guest and extra timing charges applicable.</textarea>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <button type="button" onclick="generatePDF()" class="btn">⬇ Download PDF Voucher</button>
+        </div>
+    </div>
+
+    <!-- PREVIEW SIDE -->
+    <div class="preview-side">
+        <div id="pdf-template">
+
+            <!-- HEADER -->
+            <div class="pdf-header">
+                <img src="image/logo.png" class="header-logo" alt="Logo" onerror="this.style.display='none'">
+                <div class="header-text-center">
+                    <h1 class="pdf-brand">RONAZIO</h1>
+                    <p class="pdf-sub-brand">Beach View Residency</p>
+                    <div class="pdf-voucher-label">Booking Confirmation Voucher</div>
+                    <div class="pdf-address">
+                        Ronazio Beach, Puducherry &nbsp;|&nbsp; +91 95975 62331<br>
+                        ronazioresidency@gmail.com
+                    </div>
+                </div>
+                <div class="pdf-booking-id">
+                    <div class="id-label">Booking ID</div>
+                    <div class="id-value" id="p-id">RR000001</div>
+                </div>
+            </div>
+
+            <!-- BODY -->
+            <div class="pdf-body">
+
+                <!-- Stay Banner -->
+                <div class="stay-banner">
+                    <div class="stay-box">
+                        <div class="stay-label">Check-In</div>
+                        <div class="stay-date" id="p-checkin">—</div>
+                        <div class="stay-time" id="p-checkin-t">After 12:00 PM</div>
+                    </div>
+                    <div class="stay-box">
+                        <div class="stay-label">Check-Out</div>
+                        <div class="stay-date" id="p-checkout">—</div>
+                        <div class="stay-time" id="p-checkout-t">Before 11:00 AM</div>
+                    </div>
+                    <div class="stay-box-nights">
+                        <div class="nights-num" id="p-nights-big">1</div>
+                        <div class="nights-label">Night(s)</div>
+                    </div>
+                </div>
+
+                <!-- Room Highlight -->
+                <div class="room-highlight" id="p-room-highlight">Deluxe Non AC Room</div>
+
+                <!-- Info Table -->
+                <table class="info-table">
+                    <tr>
+                        <td class="label-text">Guest Name</td>
+                        <td class="value-text" id="p-name">—</td>
+                    </tr>
+                    <tr>
+                        <td class="label-text">Phone</td>
+                        <td class="value-text" id="p-phone">—</td>
+                    </tr>
+                    <tr>
+                        <td class="label-text">Location</td>
+                        <td class="value-text" id="p-loc">—</td>
+                    </tr>
+                    <tr>
+                        <td class="label-text">Occupancy</td>
+                        <td class="value-text" id="p-occ">—</td>
+                    </tr>
+                    <tr>
+                        <td class="label-text">Booking Mode</td>
+                        <td class="value-text" id="p-mode">—</td>
+                    </tr>
+                </table>
+
+                <div class="gold-divider"></div>
+
+                <!-- Billing -->
+                <div class="billing-box">
+                    <div class="billing-row">
+                        <span>Total Amount</span>
+                        <span id="p-total">₹ 0</span>
+                    </div>
+                    <div class="billing-row advance" id="advance-row">
+                        <span>Advance Paid</span>
+                        <span id="p-advance">₹ 0</span>
+                    </div>
+                    <div class="billing-total">
+                        <span id="p-balance-label">Balance to Pay</span>
+                        <span id="p-balance">₹ 0</span>
+                    </div>
+                </div>
+
+                <!-- Note -->
+                <div class="pdf-note">
+                    <strong>Note:</strong> <span id="p-note">Any extra guest and extra timing charges applicable.</span>
+                </div>
+
+                <!-- Footer Message -->
+                <div class="pdf-footer-msg">
+                    <p>🌊 Thank you for choosing Ronazio Beach View Residency 🌊</p>
+                    <p>We look forward to welcoming you. Have a wonderful stay!</p>
+                </div>
+            </div>
+
+            <div class="pdf-footer-bar"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function setNextBookingID() {
+        let currentID = localStorage.getItem('ronazio_lastBookingID') || 0;
+        currentID = parseInt(currentID);
+        const formatted = "RR" + (currentID + 1).toString().padStart(6, '0');
+        document.getElementById('bookingIDInput').value = formatted;
+        document.getElementById('p-id').innerText = formatted;
+    }
+
+    function incrementBookingID() {
+        let inputID = document.getElementById('bookingIDInput').value;
+        let numericPart = parseInt(inputID.replace("RR", ""));
+        if (!isNaN(numericPart)) {
+            localStorage.setItem('ronazio_lastBookingID', numericPart);
+        }
+    }
+
+    function formatDate(val) {
+        if (!val) return "—";
+        return val.split('-').reverse().join('/');
+    }
+
+    function updatePreview() {
+        document.getElementById('p-id').innerText = document.getElementById('bookingIDInput').value || "RR000001";
+
+        document.getElementById('p-name').innerText = document.getElementById('guestName').value || "—";
+        document.getElementById('p-phone').innerText = document.getElementById('guestPhone').value || "—";
+        document.getElementById('p-loc').innerText = document.getElementById('guestLoc').value || "—";
+        document.getElementById('p-occ').innerText = document.getElementById('guestCount').value || "—";
+        document.getElementById('p-mode').innerText = document.getElementById('bookingMode').value || "—";
+
+        const nights = document.getElementById('nights').value || "1";
+        document.getElementById('p-nights-big').innerText = nights;
+
+        const stayType = document.getElementById('stayType').value;
+        document.getElementById('p-room-highlight').innerText = stayType;
+
+        document.getElementById('p-checkin').innerText = formatDate(document.getElementById('checkInDate').value);
+        document.getElementById('p-checkout').innerText = formatDate(document.getElementById('checkOutDate').value);
+        document.getElementById('p-checkin-t').innerText = document.getElementById('checkInTime').value;
+        document.getElementById('p-checkout-t').innerText = document.getElementById('checkOutTime').value;
+
+        document.getElementById('p-note').innerText = document.getElementById('specialNote').value || "—";
+
+        const total = parseFloat(document.getElementById('totalAmt').value) || 0;
+        const advance = parseFloat(document.getElementById('advanceAmt').value) || 0;
+        const balance = total - advance;
+
+        document.getElementById('p-total').innerText = "₹ " + total.toLocaleString('en-IN');
+
+        const advRow = document.getElementById('advance-row');
+        const balLabel = document.getElementById('p-balance-label');
+        const balVal = document.getElementById('p-balance');
+
+        if (advance === 0 && total > 0) {
+            advRow.style.display = 'none';
+            balLabel.innerText = "Full Payment Due";
+            balLabel.style.color = "var(--navy)";
+            balVal.innerText = "₹ " + total.toLocaleString('en-IN');
+            balVal.style.color = "var(--navy)";
+        } else if (advance > 0 && balance === 0) {
+            advRow.style.display = 'flex';
+            document.getElementById('p-advance').innerText = "₹ " + advance.toLocaleString('en-IN');
+            balLabel.innerText = "✓ Fully Paid";
+            balLabel.style.color = "#27ae60";
+            balVal.innerText = "✓";
+            balVal.style.color = "#27ae60";
+        } else {
+            advRow.style.display = 'flex';
+            document.getElementById('p-advance').innerText = "₹ " + advance.toLocaleString('en-IN');
+            balLabel.innerText = "Balance to Pay";
+            balLabel.style.color = "var(--navy)";
+            balVal.innerText = "₹ " + balance.toLocaleString('en-IN');
+            balVal.style.color = "var(--navy)";
+        }
+    }
+
+    window.onload = function () {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkInDate').value = today;
+        document.getElementById('checkOutDate').value = today;
+        setNextBookingID();
+        updatePreview();
+    };
+
+    function generatePDF() {
+        updatePreview();
+
+        const el = document.getElementById('pdf-template');
+
+        // Temporarily remove mobile scale for clean render
+        const prevTransform = el.style.transform;
+        el.style.transform = 'none';
+
+        const opt = {
+            margin: 0,
+            filename: 'Ronazio_Voucher_' + (document.getElementById('guestName').value || 'Booking') + '.pdf',
+            image: { type: 'jpeg', quality: 1 },
+            html2canvas: {
+                scale: 3,
+                useCORS: true,
+                width: 595,
+                scrollY: 0,
+                scrollX: 0
+            },
+            jsPDF: {
+                unit: 'px',
+                format: [595, 842],
+                orientation: 'portrait'
+            }
+        };
+
+        html2pdf().set(opt).from(el).save().then(() => {
+            el.style.transform = prevTransform;
+            incrementBookingID();
+            setNextBookingID();
+        });
+    }
+
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+        el.addEventListener('input', updatePreview);
+    });
+</script>
+</body>
+</html>
